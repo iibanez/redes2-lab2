@@ -21,13 +21,13 @@ public class Main{
 		//codificación
 		Codificacion c = new Codificacion(key,mensaje);
 		c.codificar();
-		System.out.println("Mensaje codificado: " + c.get_mensaje());
 		//mostrar mensaje codificado
-		
+		System.out.println("Mensaje codificado: " + c.get_mensaje());
 		//decodificar
-		
+		Decodificacion d = new Decodificacion(key,c.get_mensaje());
+		d.decodificar();
 		//mostrar mensaje decodificado
-		
+		System.out.println("Mensaje decodificado: " + d.get_criptomensaje());
 	}
 	
 }
