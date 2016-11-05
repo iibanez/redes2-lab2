@@ -1,4 +1,5 @@
-import java.lang.*;
+//import java.lang.*;
+import java.util.Random;
 
 public class Codificacion{
 	
@@ -7,8 +8,8 @@ public class Codificacion{
 	private int p_trasposicion  = 0;
 	
 	public Codificacion(String key, String mensaje){
-		this.array_key = key.toCharArray();
-		this.array_mensaje = mensaje.toCharArray();
+		this.array_mensaje = completar_mensaje(mensaje);
+		this.array_key = completar_clave(key);
 	}
 	
 	public void set_mensaje(String mensaje){
@@ -19,10 +20,44 @@ public class Codificacion{
 		return String.valueOf(array_mensaje);
 	}
 	
-	private void sustitucion(char letra){
+	private char[] completar_clave(String key){
+		//duplicar clave
+		int i = 0;
+		while(key.length()<32){
+			key = key + key.charAt(i);
+			i++;
+			if(key.length()==i){
+				i=0;
+			}
+		}
 		
+		return key.toCharArray();
+	}
+	
+	private char[] completar_mensaje(String mensaje){
+		int len_real = mensaje.length();
+		if(len_real<30){
+			Random rn = new Random();
+			int i = mensaje.length();
+			StringBuilder sb = new StringBuilder();
+			while(i<30){
+				sb.append(Character.toChars(rn.nextInt(255 - 32 + 1) + 32)); //random entre 32 y 255
+				i++;
+			}
+			mensaje = mensaje + sb.toString();
+		}
+		String largo = Integer.toHexString(len_real);
+		if(largo.length() == 1){
+			largo =  '0' + largo;
+		}
+		mensaje = mensaje + largo;
+		
+		return mensaje.toCharArray();
+	}
+	
+	private void sustitucion(){
 		for(int i=0;i<array_mensaje.length;i++){
-			this.array_mensaje[i] = (char)(this.array_mensaje[i] + letra);
+			this.array_mensaje[i] = (char)(this.array_mensaje[i] + this.array_key[i]);
 		}
 		
 	}
@@ -79,9 +114,9 @@ public class Codificacion{
 		
 		int productos = 0;
 		
-		while(productos<8){
+		while(productos<this.array_key.length){
 			
-			sustitucion(array_key[productos]);
+			sustitucion();
 			transposicion();
 			productos++;
 		

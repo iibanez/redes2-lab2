@@ -7,7 +7,7 @@ public class Decodificacion{
 	private int p_trasposicion  = 0;
 	
 	public Decodificacion(String key, String mensaje){
-		this.array_key = key.toCharArray();
+		this.array_key = completar_clave(key);
 		this.array_criptomensaje = mensaje.toCharArray();
 	}
 	
@@ -16,13 +16,33 @@ public class Decodificacion{
 	}
 	
 	public String get_criptomensaje(){
-		return String.valueOf(this.array_criptomensaje);
+		//System.out.println("error\n");
+		String hex = new String(this.array_criptomensaje, 30, 2);
+		//System.out.println("error\n");
+		int n = (int) Long.parseLong(hex, 16);
+		//System.out.println("error\n");
+		String m = new String(this.array_criptomensaje,0,n);
+		return m;
 	}
 	
-	private void sustitucion(char letra){
+	private char[] completar_clave(String key){
+		//duplicar clave
+		int i = 0;
+		while(key.length()<32){
+			key = key + key.charAt(i);
+			i++;
+			if(key.length()==i){
+				i=0;
+			}
+		}
+		
+		return key.toCharArray();
+	}
+	
+	private void sustitucion(){
 		
 		for(int i=0;i<this.array_criptomensaje.length;i++){
-			this.array_criptomensaje[i] = (char)(this.array_criptomensaje[i] - letra);
+			this.array_criptomensaje[i] = (char)(this.array_criptomensaje[i] - this.array_key[i]);
 		}
 		
 	}
@@ -78,24 +98,15 @@ public class Decodificacion{
 	}
 	
 	public void decodificar(){
+	
+		this.p_trasposicion = 6;
 		
-		int productos = 0;
-		//se busca la ultima posición en la cual se quedo para realizar la transposición
-		while(productos<8){
-			if((this.p_trasposicion+8)>array_key.length){
-				this.p_trasposicion = 0;
-			}
-			p_trasposicion++;
-			productos++;
-		}
-		p_trasposicion--;
-		
-		productos = 7;
+		int productos = this.array_key.length-1;
 		
 		while(productos>=0){
 			
 			transposicion();
-			sustitucion(array_key[productos]);
+			sustitucion();
 			productos--;
 		
 		}

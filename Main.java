@@ -15,8 +15,8 @@ public class Main{
 		}
 		
 		//mensaje
-		String mensaje = "hola como estas compadre del cia";
-		System.out.println("Mensaje: "+mensaje);
+		String mensaje = "hola como";
+		System.out.println("Mensaje: " + mensaje);
 		
 		//codificación
 		Codificacion c = new Codificacion(key,mensaje);
