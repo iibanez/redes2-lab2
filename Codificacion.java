@@ -1,4 +1,3 @@
-//import java.lang.*;
 import java.util.Random;
 
 public class Codificacion{
@@ -6,8 +5,10 @@ public class Codificacion{
 	private char array_key[];
 	private char array_mensaje[];
 	private int p_trasposicion  = 0;
+	private int bloques;
 	
-	public Codificacion(String key, String mensaje){
+	public Codificacion(String key, String mensaje, int bloques){
+		this.bloques = bloques;
 		this.array_mensaje = completar_mensaje(mensaje);
 		this.array_key = completar_clave(key);
 	}
@@ -23,12 +24,10 @@ public class Codificacion{
 	private char[] completar_clave(String key){
 		//duplicar clave
 		int i = 0;
-		while(key.length()<32){
+		int largo = key.length();
+		while(key.length()<this.bloques){
 			key = key + key.charAt(i);
 			i++;
-			if(key.length()==i){
-				i=0;
-			}
 		}
 		
 		return key.toCharArray();
@@ -36,11 +35,11 @@ public class Codificacion{
 	
 	private char[] completar_mensaje(String mensaje){
 		int len_real = mensaje.length();
-		if(len_real<30){
+		if(len_real<(this.bloques-2)){
 			Random rn = new Random();
 			int i = mensaje.length();
 			StringBuilder sb = new StringBuilder();
-			while(i<30){
+			while(i<(this.bloques-2)){
 				sb.append(Character.toChars(rn.nextInt(255 - 32 + 1) + 32)); //random entre 32 y 255
 				i++;
 			}

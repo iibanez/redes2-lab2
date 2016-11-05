@@ -1,12 +1,13 @@
-import java.lang.*;
 
 public class Decodificacion{
 	
 	private char array_key[];
 	private char array_criptomensaje[];
 	private int p_trasposicion  = 0;
+	private int bloques;
 	
-	public Decodificacion(String key, String mensaje){
+	public Decodificacion(String key, String mensaje, int bloques){
+		this.bloques = bloques;
 		this.array_key = completar_clave(key);
 		this.array_criptomensaje = mensaje.toCharArray();
 	}
@@ -17,7 +18,7 @@ public class Decodificacion{
 	
 	public String get_criptomensaje(){
 		//System.out.println("error\n");
-		String hex = new String(this.array_criptomensaje, 30, 2);
+		String hex = new String(this.array_criptomensaje, (this.bloques-2), 2);
 		//System.out.println("error\n");
 		int n = (int) Long.parseLong(hex, 16);
 		//System.out.println("error\n");
@@ -28,12 +29,9 @@ public class Decodificacion{
 	private char[] completar_clave(String key){
 		//duplicar clave
 		int i = 0;
-		while(key.length()<32){
+		while(key.length()<this.bloques){
 			key = key + key.charAt(i);
 			i++;
-			if(key.length()==i){
-				i=0;
-			}
 		}
 		
 		return key.toCharArray();
@@ -98,11 +96,11 @@ public class Decodificacion{
 	}
 	
 	public void decodificar(){
-	
-		this.p_trasposicion = 6;
 		
+		
+ 		this.p_trasposicion = 6;
 		int productos = this.array_key.length-1;
-		
+
 		while(productos>=0){
 			
 			transposicion();
