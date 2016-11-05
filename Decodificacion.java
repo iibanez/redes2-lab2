@@ -13,15 +13,17 @@ public class Decodificacion{
 	}
 	
 	public void set_criptomensaje(String mensaje){
+		//this.array_criptomensaje =  null;
 		this.array_criptomensaje = mensaje.toCharArray();
+		/*char m[] = mensaje.toCharArray();
+		for(int i=0 ;i<m.length;i++){
+			this.array_criptomensaje[i] = m[i];
+		}*/
 	}
 	
 	public String get_criptomensaje(){
-		//System.out.println("error\n");
 		String hex = new String(this.array_criptomensaje, (this.bloques-2), 2);
-		//System.out.println("error\n");
 		int n = (int) Long.parseLong(hex, 16);
-		//System.out.println("error\n");
 		String m = new String(this.array_criptomensaje,0,n);
 		return m;
 	}

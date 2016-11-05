@@ -14,7 +14,7 @@ public class Codificacion{
 	}
 	
 	public void set_mensaje(String mensaje){
-		this.array_mensaje = mensaje.toCharArray();
+		this.array_mensaje = completar_mensaje(mensaje);
 	}
 	
 	public String get_mensaje(){
@@ -111,6 +111,7 @@ public class Codificacion{
 	
 	public void codificar(){
 		
+		this.p_trasposicion = 0;
 		int productos = 0;
 		
 		while(productos<this.array_key.length){
