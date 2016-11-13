@@ -63,7 +63,7 @@ public class Codificacion{
 	
 	private void transposicion(){
 		
-		//Se genera la manera de hacer la trasnpociion
+		//Se genera la manera de hacer la transposicion
 		int[] ordenar = new int[8];
 		if((this.p_trasposicion+8)>array_key.length){
 			this.p_trasposicion = 0;
@@ -77,7 +77,15 @@ public class Codificacion{
 		
 		//se coloca el mensaje en la matriz de transposicion
 		char[][] matriz = new char[4][8];
-		p = 0;
+
+		//confirmar que es factible el mensaja
+		p = this.p_trasposicion-1;
+		if((p+32)>this.bloques){
+			p = 0;
+		}
+
+		int m = p;
+
 		for(int i=0;i<4;i++){
 			for(int j=0;j<8;j++){
 				matriz[i][j] = this.array_mensaje[p];
@@ -87,7 +95,6 @@ public class Codificacion{
 		
 		//realizar la transposicion del mensaje
 		p = 0;
-		int m = 0;
 		for(int j=0; j<8;j++){
 			for(int i=0;i<8;i++){
 				if((ordenar[p] > ordenar[i] && ordenar[i]!=-1) || (ordenar[p]==-1 && ordenar[i]!=-1)){

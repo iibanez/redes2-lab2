@@ -63,10 +63,16 @@ public class Decodificacion{
 		this.p_trasposicion--;
 		
 		char[][] matriz = new char[4][8]; //matriz de transposicion
-		
+
+		//confirmar que es factible el mensaja
+		int m = this.p_trasposicion+1;
+		if((m+32)>this.bloques){
+			m = 0;
+		}
+		int m1 = m;
+
 		//realizar la transposicion del mensaje
 		p = 0;
-		int m = 0;
 		for(int j=0; j<8;j++){
 			for(int i=0;i<8;i++){
 				if((ordenar[p] > ordenar[i] && ordenar[i]!=-1) || (ordenar[p]==-1 && ordenar[i]!=-1)){
@@ -85,7 +91,7 @@ public class Decodificacion{
 		}
 		
 		//se coloca el mensaje en la matriz de transposicion
-		p = 0;
+		p = m1;
 		for(int i=0;i<4;i++){
 			for(int j=0;j<8;j++){
 				this.array_criptomensaje[p] = matriz[i][j];
