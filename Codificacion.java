@@ -50,7 +50,6 @@ public class Codificacion{
 			largo =  '0' + largo;
 		}
 		mensaje = mensaje + largo;
-		System.out.println(mensaje.length());
 		
 		return mensaje.toCharArray();
 	}
