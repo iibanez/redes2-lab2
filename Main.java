@@ -4,11 +4,6 @@ import java.io.IOException;
 public class Main{
 	
 	public static void main(String[] args) throws IOException {
-
-		//LeerArchivo la = new LeerArchivo("archivo_prueba.txt",32);
-		/*la.leerContenido();
-		System.out.print(la.get_subtexto());
-		System.out.print(la.get_subtexto());*/
 		
 		//solicitar clave
 		Scanner sc = new Scanner(System.in);

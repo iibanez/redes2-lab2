@@ -6,21 +6,22 @@ public class Decodificacion{
 	private int p_trasposicion  = 0;
 	private int bloques;
 	
+	//es el constructor de la clase decodificación
+	//key: corresponde a la clave ingresada por el usuario
+	//mensaje: corresponde al mensaje codificado
+	//bloques: es el largode los bloques
 	public Decodificacion(String key, String mensaje, int bloques){
 		this.bloques = bloques;
 		this.array_key = completar_clave(key);
 		this.array_criptomensaje = mensaje.toCharArray();
 	}
 	
+	//es para setear el mensaje que se va a decodificar
 	public void set_criptomensaje(String mensaje){
-		//this.array_criptomensaje =  null;
 		this.array_criptomensaje = mensaje.toCharArray();
-		/*char m[] = mensaje.toCharArray();
-		for(int i=0 ;i<m.length;i++){
-			this.array_criptomensaje[i] = m[i];
-		}*/
 	}
 	
+	//se obtiene el mensaje decodificado
 	public String get_criptomensaje(){
 		String hex = new String(this.array_criptomensaje, (this.bloques-2), 2);
 		int n = (int) Long.parseLong(hex, 16);
@@ -28,6 +29,7 @@ public class Decodificacion{
 		return m;
 	}
 	
+	//se completa la clave al tamaño del mensaje para realizar la decodifcación
 	private char[] completar_clave(String key){
 		//duplicar clave
 		int i = 0;
@@ -39,6 +41,7 @@ public class Decodificacion{
 		return key.toCharArray();
 	}
 	
+	//se realiza la sustitución pero de manera inversa en la decodificación
 	private void sustitucion(){
 		
 		for(int i=0;i<this.array_criptomensaje.length;i++){
@@ -47,6 +50,8 @@ public class Decodificacion{
 		
 	}
 	
+	//se realiza la transposición de manera inversa para volver las
+	//las columnas a su posición original
 	private void transposicion(){
 		
 		//Se genera la manera de hacer la trasnpociion
@@ -103,6 +108,7 @@ public class Decodificacion{
 		
 	}
 	
+	//se inicia el decodificador
 	public void decodificar(){
 		
  		this.p_trasposicion = 6;

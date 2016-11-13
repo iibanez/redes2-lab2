@@ -12,11 +12,16 @@ public class LeerArchivo{
 	private int bloques;
 	private int salir = 1;
 
+	//constructor de la clase LeerArchivo
+	//nombre: corresponde al nombre del archivo de texto a leer
+	//bloques: corresponde al largo de los bloques en la lectura
 	public LeerArchivo(String nombre, int bloques){
 		this.bloques = bloques - 2;
 		this.nombre_archivo =  nombre;
 	}
 
+	//encargada de la lectura del archivo de texto uniendo todas las lineas
+	//en un string
 	public void leerContenido() throws FileNotFoundException, IOException {
     	String cadena;
     	FileReader f = new FileReader(this.nombre_archivo);
@@ -33,6 +38,7 @@ public class LeerArchivo{
       	this.fin = this.texto.length();
 	}
 
+	//obtener el pedaso de texto para generar la codificació
 	public String get_subtexto(){
 		int sacar = inicio + this.bloques;
 		if(sacar>this.fin){
@@ -44,18 +50,10 @@ public class LeerArchivo{
 		return mensaje;
 	}
 
+	//nos dice cuando terminamos de realizar toda la codificación
+	//del archivo de texto
 	public int get_salir(){
 		return this.salir;
 	}
 
 }
-
-/*
-fichero = new FileWriter("c:/prueba.txt");
-            pw = new PrintWriter(fichero);
-
-            for (int i = 0; i < 10; i++)
-                pw.println("Linea " + i);
-                fichero.close();
-*/
-

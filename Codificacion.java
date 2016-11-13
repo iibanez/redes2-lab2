@@ -7,20 +7,27 @@ public class Codificacion{
 	private int p_trasposicion  = 0;
 	private int bloques;
 	
+	//constructor de la clase codificación
+	//key: corresponde a la clave ingresada por el usuario
+	//mensaje: corresponde al troso de bloque que sera decodificado
+	//bloques: es el tamaño de bloques con el cual estamos trabajando
 	public Codificacion(String key, String mensaje, int bloques){
 		this.bloques = bloques;
 		this.array_mensaje = completar_mensaje(mensaje);
 		this.array_key = completar_clave(key);
 	}
 	
+	//es para cambiar el mensaje que se codificara
 	public void set_mensaje(String mensaje){
 		this.array_mensaje = completar_mensaje(mensaje);
 	}
 	
+	//se obtiene el mensaje codificado
 	public String get_mensaje(){
 		return String.valueOf(array_mensaje);
 	}
 	
+	//la clave se va duplicando hasta que alcanza el tamaño del bloque
 	private char[] completar_clave(String key){
 		//duplicar clave
 		int i = 0;
@@ -33,6 +40,8 @@ public class Codificacion{
 		return key.toCharArray();
 	}
 	
+	//el mensaje si es menor a 100 caracteres se debe completar además se les debe ir añadiendo
+	//el largo del mensaje al final de cada bloque
 	private char[] completar_mensaje(String mensaje){
 		int len_real = mensaje.length();
 		if(len_real<(this.bloques-2)){
@@ -54,6 +63,8 @@ public class Codificacion{
 		return mensaje.toCharArray();
 	}
 	
+	//se realiza la sustitución del texto sumandole el valor
+	//de la clave
 	private void sustitucion(){
 		for(int i=0;i<array_mensaje.length;i++){
 			this.array_mensaje[i] = (char)(this.array_mensaje[i] + this.array_key[i]);
@@ -61,6 +72,7 @@ public class Codificacion{
 		
 	}
 	
+	//se realiza la trasposición de 8 filas respecto a la clave
 	private void transposicion(){
 		
 		//Se genera la manera de hacer la transposicion
@@ -116,6 +128,8 @@ public class Codificacion{
 		
 	}
 	
+	//es la encargada de realizar la sustitución y codificación
+	//en el mensaje de texto
 	public void codificar(){
 		
 		this.p_trasposicion = 0;
