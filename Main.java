@@ -14,17 +14,22 @@ public class Main{
 			key = sc.nextLine();
 		}
 		
+		///////////////////////////
+		//modificar bloques
+		//////////////////////////
+		int bloques = 32; //incluye 2 bit para indicar tamaño bloque  puede ser de 32 a 255
+		
 		//mensaje
 		String mensaje = "hola como";
 		System.out.println("Mensaje: " + mensaje);
 		
 		//codificación
-		Codificacion c = new Codificacion(key,mensaje);
+		Codificacion c = new Codificacion(key,mensaje,bloques);
 		c.codificar();
 		//mostrar mensaje codificado
 		System.out.println("Mensaje codificado: " + c.get_mensaje());
 		//decodificar
-		Decodificacion d = new Decodificacion(key,c.get_mensaje());
+		Decodificacion d = new Decodificacion(key,c.get_mensaje(),bloques);
 		d.decodificar();
 		//mostrar mensaje decodificado
 		System.out.println("Mensaje decodificado: " + d.get_criptomensaje());
