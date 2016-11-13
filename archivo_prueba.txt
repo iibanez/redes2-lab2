@@ -1,0 +1,40 @@
+El objetivo de esta experiencia es que los estudiantes logren disenar un sistema
+de encriptacion simetrico y evaluar su rendimiento y funcionamiento a partir de
+una serie de metricas posteriormente detalladas. Esta experiencia contara de
+dos partes:
+1. En primer lugar deberan disenar el sistema de encriptacion y a traves de
+un informe explicar el algoritmo que hayan ideado para este proposito,
+ademas de incluir la evaluacion de dicho sistema.
+2. Luego de esto deberan implementar su algoritmo utilizando el lenguaje
+de programacion Java. Debera tener una interfaz sencilla en donde se
+pueda encriptar y desencriptar facilmente ingresando un texto a eleccion
+del usuario. Ademas, se debe incluir un archivo README con las instrucciones
+de compilacion de su programa.
+A partir de las actividades descritas debera redactar un informe con los
+siguientes incisos:
+• Portada
+• Introduccion: Definicion de objetivos y motivacion
+• Explicacion del algoritmo de encriptacion: explicar los pasos que sigue, el
+tipo de alfabeto utilizado, el tamano de la llave, entre otros.
+• Evaluacion del algoritmo: En base a las metricas explicadas mas abajo.
+• Criptoanalisis: Explorar las opciones y estrategias para descifrar un mensaje
+codificado, siendo el mensaje original de al menos 8 caracteres.
+• Conclusion: Sobre el trabajo y objetivos.
+Ademas de esto, se realizara una actividad en clases sobre el trabajo realizado
+que ponderara un 10% en la nota final del laboratorio 2. La fecha de esta clase
+quedara por definirse.
+Este laboratorio debe ser realizado en grupos de 3 personas. En caso de copia
+sera evaluado con nota mınima y es causal de reprobacion del laboratorio. La
+fecha de entrega es el dıa 8 de Noviembre de 2016 a las 23:55, y tanto el informe
+como el codigo fuente debe ser entregado vıa Moodle en el link habilitado para
+este proposito en un archivo comprimido con extension 7z o zip.
+Se bonificaran los trabajos realizados con controlador de versiones y son
+libres de utilizar el sistema operativo que mas les acomode.
+
+Criterios de evaluacion del algoritmo
+Al cambiar de tamano los bloques, debe verificar si el tiempo de ejecucion del
+algoritmo que diseno varıa o se mantiene constante. Para esto se deben hacer a
+lo menos 4 variaciones al tamano de dichos bloques.
+Ademas, se debe calcular el throughput para dichas variantes. En los sistemas
+de encriptacion el Throughput esta dado por el tamano del bloque utilizado
+en Kilobytes dividido por el tiempo de encriptacion.
