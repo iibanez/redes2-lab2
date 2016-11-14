@@ -62,11 +62,11 @@ Esto corresponde a la contraseña y cadena inicial
 Se comienza considerando los 8 primeros caracteres de la cadena y obteniendo su valor numérico el que nos permite ordenar las columnas de manera posterior.
 
 	contraseña            =  c    o    d    i    f    i    c    a  
-	valor numérico 		  =  99   111  100  105  102  105  99   97
+	valor numérico		  =  99   111  100  105  102  105  99   97
 
 Se ordenan los primeros 32 caracteres del mensaje en una matriz, considerar que existen caracteres que pueden ser espacios.
 
-	valor numérico 		  =  99   111  100  105  102  105  99   97
+	valor numérico		  =  99   111  100  105  102  105  99   97
 	matriz 				  =  h    o    l    a         c    o    m
 							 o         e    s    t    a    s 
 							 e    s    t    e         e    s 
@@ -81,7 +81,7 @@ Procediendo a ordenar las columnas de menor a mayor obteniendo el siguiente mens
 Para obtener la contraseña en la segunda trasposición se mueve un carácter hacia la derecha al igual que para obtener los 32 caracteres del mensaje.
 
 	contraseña            =  o    d    i    f    i    c    a    c  
- 	valor numérico 		  =  111  100  105  102  105  99   97   99
+ 	valor numérico		  =  111  100  105  102  105  99   97   99
 	matriz				  =            p    h    o    e    u    o
 						     s    s    m    l    e    t          
 						     t         j    a    s    e    e    c
@@ -91,7 +91,7 @@ Para obtener la contraseña en la segunda trasposición se mueve un carácter ha
 #### TRANSPOSICIÓN 3:
 
 	contraseña            =  d    i    f    i    c    a    c    i  
- 	valor numérico 		  =  100  105  102  105  99   97   99   105 
+ 	valor numérico		  =  100  105  102  105  99   97   99   105 
  	matriz				  =       e    n    e    t    e    s    o
 						          c    l         s         e    h
 						     l    a    o    p    m    j    e    o
@@ -101,7 +101,7 @@ Para obtener la contraseña en la segunda trasposición se mueve un carácter ha
 #### TRANSPOSICIÓN 4:
 
 	contraseña            =  i    f    i    c    a    c    i    o    
- 	valor numérico 		  =  105  102  105  99   97   99   105  111
+ 	valor numérico		  =  105  102  105  99   97   99   105  111
  	matriz				  =       j    t    t    s    m    s    s
 						     e    e    a              l    e    n
 						     l    o         e    c    a    s    e
@@ -111,7 +111,7 @@ Para obtener la contraseña en la segunda trasposición se mueve un carácter ha
 #### TRANSPOSICIÓN 5:
 
 	contraseña            =  f    i    c    a    c    i    o    n      
- 	valor numérico 		  =  102  105  99   97   99   105  111  110
+ 	valor numérico		  =  102  105  99   97   99   105  111  110
  	matriz				  =  m    u    e    s         c    h    t
 						          e    o    m    l    a    o    j
 						     e    o    p         e    l         t
@@ -123,7 +123,7 @@ Para obtener la contraseña en la segunda trasposición se mueve un carácter ha
 Se mostrará hasta esta transposición que nos muestra exactamente el punto cuando en el mensaje ya no se puede avanzar más hacia la derecha por lo que vuelve al inicio del mensaje y se cuentan 32 caracteres, esto es lo mismo que se realiza si es que en la contraseña no se puede avanzar más, se cuenta desde el inicio y se obtienen 8 caracteres.
 
 	contraseña            =   i    c    a    c    i    o    n    c        
- 	valor numérico 		  =   105  99   97   99   105  111  110  99
+ 	valor numérico		  =   105  99   97   99   105  111  110  99
  	matriz				  =   s    m         s    e    o    p     
 						           l    e    e    m         e    a 
 						      u    e    o         c    a    l    s
